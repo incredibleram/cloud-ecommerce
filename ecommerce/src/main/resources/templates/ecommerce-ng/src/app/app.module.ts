@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms'; // Import FormsModule
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
+import { ProductCardComponent } from './product-card/product-card.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { RegistrationFormComponent } from './registration-form/registration-form
     LoginComponent,
     HomeComponent,
     RegistrationFormComponent,
+    ProductCardComponent,
   ],
   imports: [
     BrowserModule,
