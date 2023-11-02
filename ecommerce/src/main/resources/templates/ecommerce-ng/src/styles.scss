@@ -1,0 +1,64 @@
+/* top-banner.component.css */
+.top-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+  }
+  
+  .left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .home-button,
+  .login-button,
+  .products-button {
+    margin: 0 10px;
+  }
+  
+  /* cloud-ecommerce-banner.component.css */
+  .cloud-ecommerce-banner {
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  /* app.component.css */
+  .search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+  }
+  
+  input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+  }
+
+  :root {
+    --font-family: 'Roboto', sans-serif;
+  }
+
+  body, h1, h2, h3, h4, h5, h6, p, a, input, button, label {
+    font-family: var(--font-family);
+  }

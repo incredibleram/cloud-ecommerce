@@ -1,0 +1,56 @@
+.login-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    text-align: center;
+  
+    h2 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+  
+    .form-group {
+      text-align: left; // Align form elements to the left
+  
+      label {
+        display: block;
+        font-weight: 600;
+        color: #555;
+      }
+  
+      input[type="text"],
+      input[type="password"] {
+        width: 95%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      select{
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+    }
+  
+    button {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-top: 3%;
+  
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+  }
+  
