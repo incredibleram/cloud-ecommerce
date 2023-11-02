@@ -9,6 +9,8 @@ import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms'; // Import FormsModule
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
 import { ProductCardComponent } from './product-card/product-card.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AddProductComponent } from './add-product/add-product.component';
 
 
 @NgModule({
@@ -19,11 +21,13 @@ import { ProductCardComponent } from './product-card/product-card.component';
     HomeComponent,
     RegistrationFormComponent,
     ProductCardComponent,
+    AddProductComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
