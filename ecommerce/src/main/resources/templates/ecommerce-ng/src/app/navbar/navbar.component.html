@@ -7,10 +7,17 @@
         <a routerLink="/login">Login</a>
       </div>
       <div class="right">
-        <a routerLink="/register">Register</a>
+        <a routerLink="/stock">Stock</a>
       </div>
       <div class="right">
-        <a routerLink="/add-product">Add Product</a>
+        <a routerLink="/orders">Orders</a>
+      </div>
+      <div class="dropdown">
+        <select class="text" (click)="navigateToPage($event)"
+          (change)="navigateToPage($event)">
+          <option value="addProduct">Add Product</option>
+          <option value="updateProduct">Update Product</option>
+        </select>
       </div>
     </div>
   </div>

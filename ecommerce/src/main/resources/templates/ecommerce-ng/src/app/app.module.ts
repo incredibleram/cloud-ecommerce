@@ -6,11 +6,20 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
-import { FormsModule } from '@angular/forms'; // Import FormsModule
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // Import FormsModule
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AddProductComponent } from './add-product/add-product.component';
+import { StockComponent } from './stock/stock.component';
+import { UpdateProductComponent } from './update-product/update-product.component';
+import { UpdateLookupComponent } from './update-lookup/update-lookup.component';
+import { OrdersComponent } from './orders/orders.component';
+import { CoreModule } from './core/core.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input'
+import { MatCardModule } from '@angular/material/card'
 
 
 @NgModule({
@@ -22,12 +31,22 @@ import { AddProductComponent } from './add-product/add-product.component';
     RegistrationFormComponent,
     ProductCardComponent,
     AddProductComponent,
+    StockComponent,
+    UpdateProductComponent,
+    UpdateLookupComponent,
+    OrdersComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     NgbModule,
+    CoreModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatCardModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
