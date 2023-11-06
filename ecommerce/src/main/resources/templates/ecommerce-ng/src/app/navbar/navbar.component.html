@@ -1,19 +1,19 @@
 <div class="navbar">
     <div class="left">
-      <a routerLink="/"><img class = "logo" src="assets/icons/home.png" alt="Home Logo"></a>
+      <a id="home-button" routerLink="/"><img class = "logo" src="assets/icons/home.png" alt="Home Logo"></a>
     </div>
     <div class="right">
       <div class="right">
-        <a routerLink="/login">Login</a>
+        <a id="logout-link" routerLink="/login" (click) = "logout()">Logout</a>
       </div>
       <div class="right">
-        <a routerLink="/stock">Stock</a>
+        <a id="stock-link" routerLink="/stock">Stock</a>
       </div>
       <div class="right">
-        <a routerLink="/orders">Orders</a>
+        <a id="orders-link" routerLink="/orders">Orders</a>
       </div>
       <div class="dropdown">
-        <select class="text" (click)="navigateToPage($event)"
+        <select id="product-mod" class="text" (click)="navigateToPage($event)"
           (change)="navigateToPage($event)">
           <option value="addProduct">Add Product</option>
           <option value="updateProduct">Update Product</option>

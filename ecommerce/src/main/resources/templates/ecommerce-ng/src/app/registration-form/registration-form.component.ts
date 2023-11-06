@@ -1,4 +1,10 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { User } from '../class/user';
+import { AuthService } from '../core/service/auth.service';
 
 @Component({
   selector: 'app-registration-form',
@@ -6,23 +12,60 @@ import { Component } from '@angular/core';
   styleUrls: ['./registration-form.component.scss']
 })
 export class RegistrationFormComponent {
-  name: string = '';
-  email: string = '';
-  address: string = '';
-  mobile: string = '';
-  pincode: string = '';
-  password: string = '';
-  confirmPassword: string = '';
+  form: FormGroup;
+  isMatching:boolean = false;
+
+  constructor(private router: Router, private formBuilder:FormBuilder, private http:HttpClient, private authService:AuthService){
+    this.form = formBuilder.group({
+      email:["",[Validators.required, Validators.email]],
+      password:["", [Validators.required]],
+      name:["",[Validators.maxLength(20)]],
+      address:[""],
+      mobile:["", [Validators.maxLength(10)]],
+      pincode:[""],
+      confirmPassword:["",[Validators.required]],
+    });
+  }
+
+  passwordKeyUp(event: any){
+    if(this.form.value.password == event.target.value){
+      this.isMatching = true;
+    }
+  }
 
   onSubmit() {
-    // Implement registration logic here, e.g., sending data to a server
-    console.log('Registration form submitted');
-    console.log('Name: ' + this.name);
-    console.log('Email: ' + this.email);
-    console.log('Address: ' + this.address);
-    console.log('Mobile: ' + this.mobile);
-    console.log('Pincode: ' + this.pincode);
-    console.log('Password: ' + this.password);
-    console.log('Confirm Password: ' + this.confirmPassword);
+    const auth = getAuth();
+    let user:User = new User();
+    user.name=this.form.value.name;
+    user.email=this.form.value.email;
+    user.address=this.form.value.address;
+    user.mobile=this.form.value.mobile;
+    user.pincode=this.form.value.pincode;
+    user.password=this.form.value.password;
+
+    console.log(user)
+    this.http.post<User>('http://localhost:8080/register', user).subscribe(response => {
+      console.log(response);
+    });
+
+    createUserWithEmailAndPassword(auth, this.form.value.email, this.form.value.password)
+    .then((userCredential) => {
+      this.authService.signin(this.form.value.email, this.form.value.password, 
+        () => {
+          this.router.navigateByUrl('/');
+          alert('user created successfully and logged in')
+        },
+        () => {
+          alert("invalid username/password")
+        });
+    })
+    .catch((error) => {
+      
+    });
+  }
+
+  loginAgain(){
+    this.router.navigateByUrl('/login');
   }
 }
+

@@ -12,15 +12,18 @@ export class AuthService {
     this.afa.signInWithEmailAndPassword(email, password)
     .then( result => {
         onSuccess();
-        console.log(result);
         result.user?.getIdToken().then(
           idToken => {
-            console.log(idToken);
         })
       })
       .catch(error => {
-        console.log(error);
         onError();
       })
+  }
+
+  signOut(){
+    this.afa.signOut().then(result => {
+    }).catch(error => {
+    });
   }
 }

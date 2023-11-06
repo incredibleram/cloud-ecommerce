@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../core/service/auth.service';
+import { AppService } from '../core/service/app.service';
 
 @Component({
   selector: 'app-login',
@@ -11,12 +12,15 @@ import { AuthService } from '../core/service/auth.service';
 export class LoginComponent {
   form: FormGroup;
   authService: AuthService;
-  constructor(private router: Router, private formBuilder:FormBuilder, authService:AuthService) { 
+  message:any;
+  visible:boolean = true;
+  constructor(private router: Router, private formBuilder:FormBuilder, authService:AuthService, private appService:AppService) { 
     this.form = formBuilder.group({
       email:["",[Validators.required, Validators.email]],
       password:["", [Validators.required]]
     });
     this.authService = authService;
+    this.appService.getMessage.subscribe(msg => this.message = msg)
   }
 
   showRegistrationForm(){
@@ -26,10 +30,12 @@ export class LoginComponent {
   logIn(){
     this.authService.signin(this.form.value.email, this.form.value.password, 
       () => {
-        console.log("success")
+        this.router.navigateByUrl('/');
+        this.visible = false;
+        this.appService.setMessage(false);
       },
       () => {
-        console.log("error")
+        alert("invalid username/password")
       });
   }
 }

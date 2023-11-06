@@ -14,5 +14,4 @@ import { environment } from "src/environments/environments";
     providers: [AuthService],
     bootstrap: [AppComponent]
   })export class CoreModule{
-    
   }

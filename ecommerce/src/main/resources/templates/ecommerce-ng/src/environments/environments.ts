@@ -1,11 +1,11 @@
 export const environment = {
     production:false,
     firebaseConfig : {
-        apiKey: "AIzaSyC_2FRIL3RnZqw19At1T3gbBZZ2STnszKA",
-        authDomain: "ecommerce-403807.firebaseapp.com",
-        projectId: "ecommerce-403807",
-        storageBucket: "ecommerce-403807.appspot.com",
-        messagingSenderId: "490043851330",
-        appId: "1:490043851330:web:7e78018b43dde4e899e3db"
-      }
+      apiKey: "AIzaSyDapsd3fs0Ll-pU3tRu7j51D1enALtuRfI",
+      authDomain: "ecommerce-inm429.firebaseapp.com",
+      projectId: "ecommerce-inm429",
+      storageBucket: "ecommerce-inm429.appspot.com",
+      messagingSenderId: "711561965335",
+      appId: "1:711561965335:web:5b213b99bb0db9ef9f9152"
+    }
 }
